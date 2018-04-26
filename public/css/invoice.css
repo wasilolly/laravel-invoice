@@ -1,0 +1,14 @@
+/**
+*nav
+**/
+
+.nav{
+	background-color:white;
+	margin: 10px;
+	padding:20px;
+	display:block;
+	text-align:center;
+}
+.nav > a{
+	padding:2px;
+}
