@@ -6,6 +6,7 @@
 	<div class="card-body">
 		<h3 style="color:blue"><b>ORDER NO: {{$order->id}}<b></h3>
 		<hr>
+		<img src="{{ asset($company->logo)}}" class="img-responsive float-right">
 		<h2 style="company-name">{{ $company->name}}</h2>
 		<div class="company-details">
 			<p>{{$company->street}}</p>
@@ -66,7 +67,7 @@
 		<hr>
 		<p>Make all checks payable to COMPANY NAME</p>
 		<p>If you have any questions concerning this invoice, use the following contact information above</p>
-		<h2>THANK YOU FOR YOUR BUSINESS!</h2>
+		<h2 class="text-center">THANK YOU FOR YOUR BUSINESS!</h2>
 		<hr>
 	</div>
 </div>        

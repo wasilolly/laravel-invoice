@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\Order;
+
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -110,4 +111,5 @@ class OrderController extends Controller
 		$order->delete();
 		return redirect()->route('order.index');
     }
+	
 }

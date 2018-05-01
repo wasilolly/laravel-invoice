@@ -18,7 +18,7 @@
 			</form>
 		</span>
 		<span class="float-left">
-			<form action="{{ route('customer.store') }}">		
+			<form action="{{ route('customer.update',['customer'=>$customer]) }}">		
 				Name:  <input type="text" id="name" value="{{$customer->name}}"><br>
 				Address: <textarea id="address" rows="5" cols="10" value="{{$customer->address}}">{{$customer->address}}</textarea><br>
 				Email: <input type="email" id="email" value="{{$customer->email}}"><br>

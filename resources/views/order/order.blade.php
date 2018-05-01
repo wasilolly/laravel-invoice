@@ -3,7 +3,7 @@
 @section('content')
 <!--shows a specific order -->
 <div class="card">
-	<div class="card-header">Order
+	<div class="card-header">
 		<span class="float-right">
 			<form action="{{ route('order.destroy',['order'=>$order])}}" method="POST"
 			onsubmit="return confirm('Order and related will be deleted!!')">
@@ -11,7 +11,9 @@
 				@method('DELETE')
 				<button class="btn btn-danger" type="submit">Delete</button>
 			</form>
-		</span>			
+			
+		</span>
+		<a href="{{ route('invoice',['id'=>$order->id])}}" class="btn btn-info">Invoice</a>			
 	</div>
 	
 	<div class="card-body">
@@ -42,6 +44,7 @@
 				<th>Date</th>
 				<th>Amount Paid</th>
 				<th>Note</th>
+				<th>Action</th>
 			</thead>
 			@foreach($order->payments as $payment)		
 			<tbody>

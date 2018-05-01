@@ -11,11 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'InvoiceController@allinvoice');
 
-Route::get('/invoice/statement', 'PaymentController@statement')->name('statement');
+Route::get('/company', 'CompanyController@company')->name('company');
+Route::PUT('/company', 'CompanyController@update')->name('company.update');
+Route::get('/invoice/{id}', 'InvoiceController@orderinvoice')->name('invoice');
+Route::get('/invoices', 'InvoiceController@allinvoice')->name('allinvoice');
+Route::get('/statement', 'PaymentController@statement')->name('statement');
 Route::resources([
 	'customer'=>'CustomerController',
 	'order'=>'OrderController',

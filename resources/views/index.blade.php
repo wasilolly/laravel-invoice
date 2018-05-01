@@ -12,17 +12,23 @@
 	<!-- Styles -->
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/invoice.css') }}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
 	<!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+	<script>$(document).ready( function () {
+			$('.table').DataTable();
+		} );
+	</script>
 	<script>@yield('script')</script>
 </head>
 <body>
 		
 	<div class="nav">
-		<a href="/">Home</a> |
+		<a href="{{route('allinvoice')}}">Invoices</a> |
+		<a href="{{route('company') }}">Company</a> |	
 		<a href="{{route('customer.index') }}">Customer</a> |
 		<a href="{{route('order.index') }}">Order</a> |
-		<a href="/invoice">Invoice</a> |
 		<a href="{{route('statement')}}">Statement</a>
 	</div>
 	

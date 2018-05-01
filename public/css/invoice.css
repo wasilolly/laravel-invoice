@@ -12,3 +12,19 @@
 .nav > a{
 	padding:2px;
 }
+
+/**
+*invoice
+**/
+.company-details{
+	display:block;
+	
+}
+.customer-details>p{
+	display:block;
+	word-spacing: 20px;
+	
+}
+.invoice-tfoot{
+	margin-right:120px;
+}
