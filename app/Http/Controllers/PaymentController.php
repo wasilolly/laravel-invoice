@@ -100,6 +100,6 @@ class PaymentController extends Controller
     {
         $payment=Payment::findOrFail($payment->id);
 		$payment->delete();
-		return redirect()->back();
+		return redirect()->back()->with('status','Payment deleted');;
     }
 }

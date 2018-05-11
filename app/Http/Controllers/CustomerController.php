@@ -51,7 +51,7 @@ class CustomerController extends Controller
 			'credit_limit' => $request->credit
 		]);
 		
-		return redirect()->back();
+		return redirect()->back()->with('status','New Customer created');
     }
 
     /**
@@ -119,6 +119,6 @@ class CustomerController extends Controller
 		}
 		$cust->delete();
 		
-		return redirect()->route('customer.index');
+		return redirect()->route('customer.index')->with('status','Customer Deleted');;
     }
 }

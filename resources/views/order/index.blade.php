@@ -1,17 +1,12 @@
 @extends('index')
 
+@section('navtitle','Orders')
 @section('content')
-
+<a href="{{ route('order.create')}}" class="btn btn-secondary btn-xs">New</a>
+<a href="{{ route('statement')}}" class="btn btn-secondary btn-xs float-right">Statement</a>
 <div class="card">
-	<div class="card-header">Order
-		<span class="float-right">
-			<a href="{{ route('order.create')}}" class="btn btn-primary btn-xs">New</a>
-		</span>
-	</div>
-
 	<div class="card-body">
-		
-		<table class="table">
+		<table class="table tabledata">
 			<thead>
 				<tr>
 					<th>Date</th>

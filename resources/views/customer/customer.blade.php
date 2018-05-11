@@ -4,7 +4,8 @@
 
 <div class="card">
 	<div class="card-header">
-		<span class="float-right">
+		<span class="float-right statement">
+			<h3><b>Customer Account Summary</b></h3>
 			<p>No. of Orders: {{ $customer->orders->count() }}</p>
 			<p>No. of payments: {{ $customer->noCustPayments() }}</p>
 			<p>Total Order:{{ $customer->totalOrdersAmount() }}</p>
@@ -18,7 +19,8 @@
 			</form>
 		</span>
 		<span class="float-left">
-			<form action="{{ route('customer.update',['customer'=>$customer]) }}">		
+			<form action="{{ route('customer.update',['customer'=>$customer]) }}">
+			
 				Name:  <input type="text" id="name" value="{{$customer->name}}"><br>
 				Address: <textarea id="address" rows="5" cols="10" value="{{$customer->address}}">{{$customer->address}}</textarea><br>
 				Email: <input type="email" id="email" value="{{$customer->email}}"><br>
@@ -30,7 +32,7 @@
 	</div>
 
 	<div class="card-body">	
-		<table class="table">
+		<table class="table tabledata">
 			<thead>
 				<tr>
 					<th>Order Date</th>

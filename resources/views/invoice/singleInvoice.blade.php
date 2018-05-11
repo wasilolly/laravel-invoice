@@ -1,7 +1,7 @@
 @extends('index')
 
 @section('content')
-
+<!-- show a single order as downloadable invoice -->
 <div class="card">
 	<div class="card-body">
 		<h3 style="color:blue"><b>ORDER NO: {{$order->id}}<b></h3>
@@ -59,11 +59,21 @@
 				</tbody>							
 			</table>			
 		</div>
-		<div class="invoice-tfoot float-right">
+		<hr>
+		<div class="statement float-left">
 			<p>Payment Total: {{$order->totalPayments()}}</p>
 			<p>Overdue: {{$order->due()}}</p>
 			<p>Total:   {{$order->amount}}</p>
 		</div>
+		
+		<div class="clearfix">
+		<span class=" statement float-right">
+			<p>{{$order->totalPayments()}}</p>
+			<p>{{$order->due()}}</p>
+			<p>{{$order->amount}}</p>
+		</span>
+		</div>
+		
 		<hr>
 		<p>Make all checks payable to COMPANY NAME</p>
 		<p>If you have any questions concerning this invoice, use the following contact information above</p>

@@ -13,10 +13,11 @@
 			</form>
 			
 		</span>
-		<a href="{{ route('invoice',['id'=>$order->id])}}" class="btn btn-info">Invoice</a>			
+		<a href="{{ route('invoice',['id'=>$order->id])}}" class="btn btn-info">Invoice</a>	
+		<a href="{{ route('invoice.pdf',['id'=>$order->id])}}" class="btn btn-info">PDF</a>	
 	</div>
-	
-	<div class="card-body">
+	<div class="row">
+	<div class="card-body col-md-5">
 		<form action="{{ route('order.update',['order'=>$order])}}" >
 			Customer: <input type="text" id="name" value="{{ $order->customer->name }}" readonly><br>
 			Due_Date: <input type="date" id="due" value="{{ $order->due_date }}"><br>
@@ -28,7 +29,9 @@
 		</form>
 	</div>
 	<hr>
-	<div class="card-body">
+	
+	<!-- payments made on the order-->
+	<div class="card-body col-md-5">
 		<h3>Payments </h3>
 		
 		<form action="{{ route('payment.store')}}" id="paystore">
@@ -67,8 +70,10 @@
 		
 		@endif
 	</div>
+	</div>
 </div>
 @endsection
+
 @section('script')
 $(document).ready(function(){
 	$.ajaxSetup({

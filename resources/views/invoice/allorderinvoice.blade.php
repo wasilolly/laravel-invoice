@@ -1,6 +1,9 @@
 @extends('index')
 
+@section('navtitle','All Invoices')
+
 @section('content')
+<!-- shows all orders in the database as downloadable invoices -->
 @if($orders->count())
 
 <div class="page">{{$orders->links()}}</div>
@@ -8,6 +11,7 @@
 <div class="card">
 	<div class="card-body">
 		<h3 style="color:blue"><b>ORDER NO: {{$order->id}}<b></h3>
+		<a href="{{ route('invoice.pdf',['id'=>$order->id])}}" class="btn btn-info float-right">PDF</a>	
 		<hr>
 		<img src="{{ asset($company->logo)}}" class="img-responsive float-right">
 		<h2 style="company-name">{{ $company->name}}</h2>
@@ -62,11 +66,21 @@
 				</tbody>							
 			</table>			
 		</div>
-		<div class="invoice-tfoot float-right">
-			<p>Payment Total: {{$order->totalPayments()}}</p>
-			<p>Overdue: {{$order->due()}}</p>
-			<p>Total:   {{$order->amount}}</p>
+		<hr>
+		<div class="statement float-left">
+			<p>Payment Total:</p>
+			<p>Overdue:</p>
+			<p>Total:  </p>
 		</div>
+		
+		<div class="clearfix">
+		<span class=" statement float-right">
+			<p>{{$order->totalPayments()}}</p>
+			<p>{{$order->due()}}</p>
+			<p>{{$order->amount}}</p>
+		</span>
+		</div>
+		
 		<hr>
 		<p>Make all checks payable to COMPANY NAME</p>
 		<p>If you have any questions concerning this invoice, use the following contact information above</p>

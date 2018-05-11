@@ -1,21 +1,29 @@
 @extends('index')
 
+@section('navtitle','statement')
 @section('content')
 
 <div class="card">
 	<div class="card-header">
-		<span class="float-left">
-			<p>Total Order: {{ $tOrders }}</p>
-			<p>No. of orders: {{ $orders->count() }}</p>
-			<p>Total Payments: {{ $tPays}}</p>
-			<p>No. of payments: {{ $payments->count() }}</p>
-			<p>Overdue: {{ $tOrders-$tPays }}</p>
-		</span>
+		<div class="statement float-left">
+			<p>Total Order:</p>
+			<p>No. of orders: </p>
+			<p>Total Payments: </p>
+			<p>No. of payments: </p>
+			<p>Overdue:</p>
+		</div>
+		<span class="statement float-right">
+			<p>{{ $tOrders }}</p>
+			<p>{{ $orders->count() }}</p>
+			<p>{{ $tPays}}</p>
+			<p>{{ $payments->count() }}</p>
+			<p>{{ $tOrders-$tPays }}</p>
+		</span>	
 	</div>
 
 	<div class="card-body">
 		
-		<table class="table">
+		<table class="table tabledata">
 			<thead>
 				<tr>
 					<th>Order Date</th>

@@ -51,7 +51,7 @@ class OrderController extends Controller
 			'note'=>$request->note		
 		]);
 		
-		return redirect()->route('order.index');
+		return redirect()->route('order.index')->with('status','order created');
     }
 
     /**
@@ -109,7 +109,7 @@ class OrderController extends Controller
 			$payment->delete();
 		}
 		$order->delete();
-		return redirect()->route('order.index');
+		return redirect()->route('order.index')->with('status','order deleted');
     }
 	
 }

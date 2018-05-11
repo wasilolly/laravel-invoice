@@ -10,15 +10,19 @@
 	<title>Laravel</title>
 
 	<!-- Styles -->
+	<link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/invoice.css') }}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+	
 	<!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}"></script>
 	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-	<script>$(document).ready( function () {
-			$('.table').DataTable();
-		} );
+	<script>
+		$(document).ready( function () {
+			$('.tabledata').DataTable();
+		});
+		$(".alert").alert('close')
 	</script>
 	<script>@yield('script')</script>
 </head>
@@ -32,10 +36,25 @@
 		<a href="{{route('statement')}}">Statement</a>
 	</div>
 	
-		
+	
+	<div class="nav-banner">
+		<div class="animated zoomIn">
+		@yield('navtitle')
+		</div>
+	</div>
+	
+	@if (session('status'))
+    <div class="alert alert-success  text-center">
+       <strong> {{ session('status') }}</strong>
+	   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+    </div>
+	@endif
+	
 	<div class="container">
 		<div class="row justify-content-center">
-			<div class="col-md-8">
+			<div class="col-md-10">
 				@yield('content')
 			</div>
 		</div>

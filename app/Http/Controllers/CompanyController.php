@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use Session;
+
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -23,7 +25,9 @@ class CompanyController extends Controller
 		$company->email=$request->email;
 		$company->phone=$request->phone;
 		$company->save();
-		return redirect()->back();
+		
+		
+		return redirect()->back()->with('status', 'Meta updated!');
 	}
 	
 	public function company(){
